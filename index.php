@@ -27,7 +27,11 @@
       </thead>
       <tbody>
         <?php
-          $conexion = mysqli_connect("COLOCA IP BD", "root", "123456", "BD");
+          echo var_dump(getenv('MYSQL_HOST'));
+          echo var_dump(getenv('MYSQL_USER'));
+          echo var_dump(getenv('MYSQL_PASSWORD'));
+
+          $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "BD");
 
           $cadenaSQL = "SELECT * FROM n_cliente";
           $resultado = mysqli_query($conexion, $cadenaSQL);
